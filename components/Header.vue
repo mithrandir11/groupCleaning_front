@@ -1,12 +1,16 @@
+<script setup>
+const { authUser } = useAuth()
+</script>
+
 <template>
-  <nav class=" border-b ">
-    <div class=" flex flex-wrap items-center  mx-auto py-3">
+  <nav class="container border-b fixed bg-white w-full  z-20 ">
+    <div class=" flex flex-wrap items-center  mx-auto py-3 ">
 
       <a href="#" class="ml-8">
-          <img src="/images/logo.webp" class="w-20"  alt="Flowbite Logo" />
+          <img src="/images/logo.webp" class="w-20"   />
       </a>
 
-      <div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
+      <div class="hidden w-full md:block md:w-auto " id="navbar-multi-level">
         <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
           <li>
             <NuxtLink to="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 ">صفحه اصلی</NuxtLink>
@@ -286,6 +290,15 @@
         </ul>
       </div>
 
+      <div class="mr-auto flex items-center gap-x-1">
+       
+        <NuxtLink v-if="authUser" :to="{ name: 'home' }" class="flex border border-gray-300 bg-gray-100 rounded-lg px-2 py-1 text-sm text-gray-600 ml-3">مشاهده پروفایل</NuxtLink>
+        <NuxtLink v-else :to="{ name: 'login' }" class="flex border border-gray-300 bg-gray-100 rounded-lg px-2 py-1 text-sm text-gray-600 ml-3">ورود | ثبت نام</NuxtLink>
+        
+        <span class="font-bold text-blue-500">021-665555</span>
+        <svg class="w-5 h-5 fill-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      </div>
+
       <button
         data-collapse-toggle="navbar-multi-level"
         type="button"
@@ -311,10 +324,7 @@
         </svg>
       </button>
 
-      <!-- <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap ">Flowbite</span>
-            </a> -->
+      
     </div>
   </nav>
 </template>

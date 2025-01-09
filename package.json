@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.2",
+    "@formkit/nuxt": "^1.6.9",
     "@pinia/nuxt": "^0.9.0",
     "nuxt": "^3.14.1592",
     "pinia": "^2.3.0",

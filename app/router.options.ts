@@ -8,6 +8,12 @@ export default {
       component: () => import('~/pages/index.vue')
     },
     {
+      name: 'login',
+      path: '/login',
+      component: () => import('~/pages/auth/login.vue'),
+      meta: {layout:false, middleware:'guest'}
+    },
+    {
       name: 'order',
       path: '/order',
       component: () => import('~/pages/order.vue')
