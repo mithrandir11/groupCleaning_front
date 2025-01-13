@@ -14,9 +14,24 @@ export default {
       meta: {layout:false, middleware:'guest'}
     },
     {
+      name: 'services',
+      path: '/services',
+      component: () => import('~/pages/services.vue')
+    },
+    {
       name: 'order',
-      path: '/order',
+      path: '/services/:service/order',
       component: () => import('~/pages/order.vue')
+    },
+    {
+      name: 'blog',
+      path: '/blog',
+      component: () => import('~/pages/blog/index.vue')
+    },
+    {
+      name: 'showArticle',
+      path: '/blog/:id/:slug',
+      component: () => import('~/pages/blog/[id][slug].vue')
     },
     
   ],

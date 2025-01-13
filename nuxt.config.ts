@@ -28,6 +28,9 @@ export default defineNuxtConfig({
   },
 
   modules: ['@pinia/nuxt', '@formkit/nuxt'],
+  pinia: {
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
+  },
   formkit: {
     autoImport: true
   }
