@@ -79,7 +79,7 @@ const isOptionValid = () => {
 const goToNextStep = () => {
   if (selectedDate.value && selectedTime.value) {
     orderStore.setSelectedDateTime(selectedDate.value, selectedTime.value);
-    console.log('تاریخ و ساعت ذخیره شد:', selectedDate.value, selectedTime.value);
+    // console.log('تاریخ و ساعت ذخیره شد:', selectedDate.value, selectedTime.value);
     orderStore.nextStep()
   } else {
     console.log('لطفاً تاریخ و ساعت معتبر را انتخاب کنید.');
@@ -88,7 +88,11 @@ const goToNextStep = () => {
 </script>
 
 <template>
-    <p class="font-bold text-xl mb-6">تاریخ و ساعت درخواستی خود را انتخاب کنید</p>
+    <div class="flex justify-between mb-6">
+        <p class="font-bold text-xl ">تاریخ و ساعت درخواستی خود را انتخاب کنید</p>
+        <p class="bg-red-500 rounded-full px-2 py-1 text-xs text-white">پاسخ الزامی میباشد</p>
+    </div>
+    <!-- <p class="font-bold text-xl mb-6">تاریخ و ساعت درخواستی خود را انتخاب کنید</p> -->
     <div class="grid max-w-full">
         <div class=" overflow-x-auto  ">
             <!-- بخش انتخاب تاریخ -->

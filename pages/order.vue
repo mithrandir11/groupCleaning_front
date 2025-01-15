@@ -8,9 +8,6 @@ const {data:service} = await useFetch(`${apiBase}/services/${route.params.servic
 const orderStore = useOrderStore();
 const step = computed(()=> orderStore.step)
 
-function gg(){
-    console.log(orderStore.orderData)
-}
 </script>
 
 <template>
@@ -21,7 +18,7 @@ function gg(){
 
             <div class="w-full">
                 <!-- <p>{{ step }}</p> -->
-                <OrderStepsServiceType v-if="step == 1" :service_id="service.data.id" :step="step"/>
+                <OrderStepsServiceType v-if="step == 1" :service_id="service.data.id"/>
 
                 <LazyOrderStepsServiceOptions v-if="step == 2" :service_id="service.data.id" :step="step"/>
 
@@ -33,14 +30,7 @@ function gg(){
 
                 <LazyOrderStepsAddressRegistration v-if="step == 6"/>
 
-                <p v-if="step == 7">
-                    <button @click="gg" type="button" class="bg-blue-400 p-3 rounded-lg text-white">ثبت سفارش</button>
-                </p>
-
-                <!-- <div class=" mt-14 text-center">
-                    <button @click="orderStore.previousStep" v-if="step != 1" type="button" class="border border-gray-600  px-8 py-2 text-sm rounded-lg  ">مرحله قبل</button>
-                    <button @click="orderStore.nextStep" type="button" class="bg-gray-600 mr-3 hover:bg-gray-700 duration-200 px-8 py-2 text-sm rounded-lg text-white ">مرحله بعد</button>
-                </div> -->
+                <LazyOrderStepsOrderStore v-if="step == 7"/>
 
             </div>
         </div>

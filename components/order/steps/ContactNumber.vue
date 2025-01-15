@@ -20,7 +20,11 @@ const goToNextStep = () => {
 </script>
 <template>
     <div> <!-- //step5 -->
-        <p class="font-bold text-xl mb-6">ارائه شماره تماس جهت هماهنگی</p>
+        <div class="flex justify-between mb-6">
+            <p class="font-bold text-xl ">ارائه شماره تماس جهت هماهنگی</p>
+            <p class="bg-red-500 rounded-full px-2 py-1 text-xs text-white">پاسخ الزامی میباشد</p>
+        </div>
+        <!-- <p class="font-bold text-xl mb-6">ارائه شماره تماس جهت هماهنگی</p> -->
         <div class="relative w-72 ">              
             <input v-model="orderStore.orderData.contactNumber.number" type="text"  class="ltr w-full p-3 rounded-lg   text-gray-700 duration-200 border border-gray-200  focus:border-blue-300 outline-none text-lg pl-10"/>
             <div class="absolute inset-y-0 end-0 flex items-center pe-3.5 pointer-events-none">
