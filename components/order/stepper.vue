@@ -5,7 +5,7 @@ const step = computed(()=> orderStore.step)
 </script>
 
 <template>
-    <ol class="relative text-gray-500 border-s border-gray-200  mt-3 space-y-14 mr-5 self-start">               
+    <ol class="relative text-gray-600 border-s border-gray-200  mt-3 space-y-14 mr-5 self-start w-56">               
         <li class=" ms-8 flex items-center">            
             <!-- <span class="absolute flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full -start-5 text-white">
                 <svg class="w-3.5 h-3.5 text-blue-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -30,20 +30,26 @@ const step = computed(()=> orderStore.step)
             <p class="text-sm">توضیحات بیشتر</p>
         </li>
         <li class=" ms-8 flex items-center">
-            <span :class="{'bg-blue-100 text-blue-500': step>4, 'bg-blue-400 text-white': step==4, 'bg-gray-200': step!=4 && step<4}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+            <span :class="{'bg-blue-100 text-blue-500': step>4, 'bg-blue-400 text-white': step==4, 'bg-gray-200': step!=4 && step<4}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5 ">
                 4
+            </span>
+            <p class="text-sm">تاریخ و ساعت درخواستی</p>
+        </li>
+        <li class=" ms-8 flex items-center">
+            <span :class="{'bg-blue-100 text-blue-500': step>5, 'bg-blue-400 text-white': step==5, 'bg-gray-200': step!=5 && step<5}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+                5
             </span>
             <p class="text-sm">شماره تماس</p>
         </li>
         <li class=" ms-8 flex items-center">
-            <span class="absolute flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full -start-5 ring-5 ring-white ">
-                5
+            <span :class="{'bg-blue-100 text-blue-500': step>6, 'bg-blue-400 text-white': step==6, 'bg-gray-200': step!=6 && step<6}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+                6
             </span>
             <p class="text-sm">ثبت و تایید آدرس</p>
         </li>
         <li class="ms-8 flex items-center">
-            <span class="absolute flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full -start-5 ring-5 ring-white ">
-                6
+            <span :class="{'bg-blue-400 text-white': step==7, 'bg-gray-200': step!=7 && step<7}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+                7
             </span>
             <p class="text-sm">ثبت سفارش</p>
         </li>

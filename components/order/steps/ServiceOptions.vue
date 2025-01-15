@@ -64,59 +64,7 @@ const isOptionValid = (serviceOption) => {
 
 
        
-        <!--<div>
-            <p class="font-bold text-xl">برآورد از زمان مورد نیاز</p>
-            <select id="countries" class="mt-6 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4  ">
-                <option selected>4 ساعت</option>
-                <option value="US">5 ساعت</option>
-                <option value="CA">6 ساعت</option>
-                <option value="FR">7 ساعت</option>
-                <option value="DE">8 ساعت</option>
-                <option value="DE">9 ساعت</option>
-                <option value="DE">10 ساعت</option>
-            </select>
-        </div>
-
-        <div>
-            <p class="font-bold text-xl">متراژ فضا</p>
-            <select id="countries" class="mt-6 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4  ">
-                <option selected>کمتر از 50 متر</option>
-                <option value="US">50 تا 70 متر</option>
-                <option value="US">70 تا 90 متر</option>
-                <option value="US">90 تا 130 متر</option>
-                <option value="US">بیشتر از 130 متر</option>
-            </select>
-        </div>
-
-        <div>
-            <p class="font-bold text-xl">خدمات تکمیلی</p>
-            <div class="mt-6 grid grid-cols-4 gap-4">
-                <div class="cursor-pointer p-3 rounded-lg  bg-gray-100 text-gray-700 duration-200 border border-gray-100 hover:border hover:border-blue-300 text-lg">باز و نصب کردن پرده</div>
-                <div class="cursor-pointer p-3 rounded-lg  bg-gray-100 text-gray-700 duration-200 border border-gray-100 hover:border hover:border-blue-300 text-lg">اتوکشی پرده</div>
-                <div class="cursor-pointer p-3 rounded-lg  bg-gray-100 text-gray-700 duration-200 border border-gray-100 hover:border hover:border-blue-300 text-lg">شامپو فرش و مبل</div>
-                <div class="cursor-pointer p-3 rounded-lg  bg-gray-100 text-gray-700 duration-200 border border-gray-100 hover:border hover:border-blue-300 text-lg">لوستر</div>
-                <div class="cursor-pointer p-3 rounded-lg  bg-gray-100 text-gray-700 duration-200 border border-gray-100 hover:border hover:border-blue-300 text-lg">شستن فرش</div>
-            </div>
-        </div>
-
-        <div>
-            <p class="font-bold text-xl">تعداد نیروی موردنیاز</p>
-            <select id="countries" class="mt-6 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4  ">
-                <option selected>1 نفر</option>
-                <option value="US">2 نفر</option>
-                <option value="US">3 نفر</option>
-                <option value="US">4 نفر</option>
-                <option value="US">5 نفر</option>
-            </select>
-        </div>
-
-        <div>
-            <p class="font-bold text-xl">حیوان خانگی دارید؟</p>
-            <select id="countries" class="mt-6 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4  ">
-                <option selected>خیر</option>
-                <option value="US">بله</option>
-            </select>
-        </div> -->
+       
 
         <!-- <div>
             <p class="font-bold text-xl">تاریخ و ساعت درخواستی</p>   
