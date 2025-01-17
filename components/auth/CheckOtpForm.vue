@@ -1,6 +1,8 @@
 <script setup>
 import { useAuth } from '~/composables/useAuth'
 
+const emit = defineEmits(['navigate'])
+
 const { authUser } = useAuth()
 
 const isLoading = ref(false)
@@ -17,7 +19,8 @@ async function handleCheckOtp(form) {
 
         console.log(data)
         authUser.value = data
-        return navigateTo('/')
+        emit('navigate')
+        // return navigateTo('/profile')
         
     } catch (error) {
         // console.log(error.data.data)
@@ -29,9 +32,9 @@ async function handleCheckOtp(form) {
 </script>
 
 <template>
-    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+    <!-- <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
         کد تایید را وارد کنید
-    </h1>
+    </h1> -->
 
     <FormKit type="form" @submit="handleCheckOtp" :actions="false" :incomplete-message="false">
         <div class="space-y-4 md:space-y-6">
@@ -47,7 +50,7 @@ async function handleCheckOtp(form) {
             <AuthResendOtp/>
             
         
-            <FormKit type="submit" input-class="flex w-full items-center justify-center text-white bg-blue-600 hover:bg-blue-700 duration-200 rounded-lg text-sm px-5 py-2.5 text-center ">
+            <FormKit type="submit" input-class="flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 duration-200 rounded-lg text-sm px-5 py-2.5 text-center ">
                 <UtilsLoading v-if="isLoading" class="ml-3"/>
                 تایید
             </FormKit>

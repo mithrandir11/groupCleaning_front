@@ -13,9 +13,11 @@
                             <img class="h-40" src="/images/logo_full.png" alt="logo"> 
                         </NuxtLink>
 
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                            ورود | ثبت نام
+                        </h1>
                         
-                        
-                        <AuthCheckOtpForm v-if="showCheckOtpForm"/>
+                        <AuthCheckOtpForm v-if="showCheckOtpForm" @navigate="() => navigateTo('/profile') " />
                         <AuthLoginForm v-else @show-check-otp-form="() => showCheckOtpForm = true"/>
 
                     </div>

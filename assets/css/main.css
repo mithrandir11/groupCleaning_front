@@ -24,3 +24,9 @@ img, svg, video, canvas, audio, iframe, embed, object {
 .ltr {
     direction: ltr;
 }
+
+.disabled{
+    opacity: 70%;
+    cursor: not-allowed;
+    @apply bg-gray-100;
+}

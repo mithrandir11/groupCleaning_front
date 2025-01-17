@@ -3,6 +3,8 @@ export default defineEventHandler(async (event) => {
     const token = getCookie(event, 'token')
     const query = getQuery(event)
 
+    // return query
+
     try {
         const data = await $fetch(`${apiBase}/orders/userOrders`, {
             query: query,
@@ -12,7 +14,7 @@ export default defineEventHandler(async (event) => {
             }
         });
 
-        return data;
+        return data.data;
     } catch (error) {
         return error
     }

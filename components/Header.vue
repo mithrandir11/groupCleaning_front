@@ -289,7 +289,7 @@ const { authUser } = useAuth()
 
       <div class="mr-auto flex items-center gap-x-1">
        
-        <NuxtLink v-if="authUser" :to="{ name: 'home' }" class="flex border border-gray-300 bg-gray-100 rounded-lg px-2 py-1 text-sm text-gray-600 ml-3">مشاهده پروفایل</NuxtLink>
+        <NuxtLink v-if="authUser" :to="{ name: 'profile' }" class="flex border border-gray-300 bg-gray-100 rounded-lg px-2 py-1 text-sm text-gray-600 ml-3">مشاهده پروفایل</NuxtLink>
         <NuxtLink v-else :to="{ name: 'login' }" class="flex border border-gray-300 bg-gray-100 rounded-lg px-2 py-1 text-sm text-gray-600 ml-3">ورود | ثبت نام</NuxtLink>
         
         <span class="font-bold text-blue-500">021-665555</span>

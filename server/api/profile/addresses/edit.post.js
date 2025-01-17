@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     try {
 
         // console.log(body)
-        const data = await $fetch(`${apiBase}/addresses/edit/${body.address_id}`, {
+        const data = await $fetch(`${apiBase}/addresses/edit`, {
             method: 'POST',
             body: body,
             headers: {

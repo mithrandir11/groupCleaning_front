@@ -1,15 +1,11 @@
 <script setup>
 import { useOrderStore } from '~/stores/orderStore';
-
-const route = useRoute();
 const { public:{apiBase} } = useRuntimeConfig();
+const route = useRoute();
 const {data:service} = await useFetch(`${apiBase}/services/${route.params.service}`)
-
 const orderStore = useOrderStore();
 const step = computed(()=> orderStore.step)
-
 </script>
-
 <template>
    
 

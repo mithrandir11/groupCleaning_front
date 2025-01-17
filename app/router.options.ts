@@ -33,6 +33,25 @@ export default {
       path: '/blog/:id/:slug',
       component: () => import('~/pages/blog/[id][slug].vue')
     },
+
+    {
+      name: 'profile',
+      path: '/profile',
+      component: () => import('~/pages/profile/index.vue'),
+      meta: {layout: 'profile', middleware: 'auth'}
+    },
+    {
+      name: 'profile.services',
+      path: '/profile/services',
+      component: () => import('~/pages/profile/services.vue'),
+      meta: {layout: 'profile', middleware: 'auth'}
+    },
+    {
+      name: 'profile.addresses',
+      path: '/profile/addresses',
+      component: () => import('~/pages/profile/address.vue'),
+      meta: {layout: 'profile', middleware: 'auth'}
+    },
     
   ],
 } satisfies RouterConfig

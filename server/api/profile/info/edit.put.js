@@ -3,9 +3,11 @@ export default defineEventHandler(async (event) => {
     const { public: { apiBase } } = useRuntimeConfig();
     const token = getCookie(event, 'token')
 
+    // return body
+
     try {
-        const data = await $fetch(`${apiBase}/profile/info/edit`, {
-            method: 'POST',
+        const data = await $fetch(`${apiBase}/users/info/edit`, {
+            method: 'PUT',
             body: body,
             headers: {
                 'Accept': 'application/json',
