@@ -9,7 +9,10 @@ const {data, refresh} = await useFetch(()=> '/api/profile/addresses', {
 </script>
 <template>
     <div class=" overflow-x-auto  grow">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+
+        <ProfileAddressCreate :refresh="refresh" />
+
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 mt-10">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -31,9 +34,9 @@ const {data, refresh} = await useFetch(()=> '/api/profile/addresses', {
             </thead>
             
             <tbody>
-                <tr v-for="address in data" class="odd:bg-white  even:bg-gray-50  border-b ">
+                <tr v-for="(address, index) in data" class="odd:bg-white  even:bg-gray-50  border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        ۱
+                        {{ data.length - index }}
                     </th>
                     <td class="px-6 py-4">
                         {{ address.state }}

@@ -52,6 +52,11 @@ export default {
       component: () => import('~/pages/profile/address.vue'),
       meta: {layout: 'profile', middleware: 'auth'}
     },
+    {
+      path: '/menu/:slug+',
+      name: 'menu',
+      component: () => import('~/pages/menu/[...slug].vue'),
+    },
     
   ],
 } satisfies RouterConfig

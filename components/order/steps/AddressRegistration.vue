@@ -16,14 +16,14 @@ const showCheckOtpForm = ref(false)
       <p class="font-bold text-xl mb-6">آدرس خود را انتخاب کنید</p>
       <ProfileAddressCreate :refresh="refresh" />
 
-      <template v-if="addresses && addresses.length > 0">
+      <div v-if="addresses && addresses.length > 0" class="mt-10">
         <UtilsGeneralSelector
           v-model="orderStore.orderData.address"
           :items="addresses"
           :multiple="false"
           itemKey="full_address"
         />
-      </template>
+      </div>
 
         <div class="flex gap-x-3 justify-center mt-14">
             <button

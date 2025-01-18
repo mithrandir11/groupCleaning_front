@@ -27,7 +27,7 @@ async function handleCreate(form) {
 }
 </script>
 <template>
-    <div class=" mb-12">
+    <div >
         <button @click="showCreateAddressForm = !showCreateAddressForm" type="button" class=" border rounded-lg px-3 py-1 border-blue-300 pb-1 text-blue-500 font-bold  text-sm  block mr-auto">ایجاد آدرس جدید +</button>
 
         <FormKit v-if="showCreateAddressForm" id="createAddress" type="form" @submit="handleCreate" :actions="false" :incomplete-message="false" >

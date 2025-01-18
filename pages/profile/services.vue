@@ -105,9 +105,9 @@ function statusClass(status){
             </thead>
             
             <tbody>
-                <tr v-for="order in data.data" class="odd:bg-white  even:bg-gray-50  border-b ">
+                <tr v-for="(order, index) in data.data" class="odd:bg-white  even:bg-gray-50  border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        ۱
+                        {{ data.data.length - index }}
                     </th>
                     <td class="px-6 py-4">
                         {{ order.order_code }}

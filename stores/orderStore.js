@@ -1,6 +1,6 @@
 export const useOrderStore = defineStore('order', {
   state: () => ({
-    step: 6, // مرحله اصلی
+    step: 1, // مرحله اصلی
     maxSteps: 7,
     subStep: 1, // زیرمرحله
     maxSubSteps: {}, // تعداد زیرمراحل برای هر مرحله اصلی، به‌صورت داینامیک
