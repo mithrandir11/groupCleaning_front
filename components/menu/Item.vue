@@ -1,7 +1,8 @@
 <template>
     <li class="menu-item ">
       <!-- نمایش منوی والد -->
-      <button
+      <NuxtLink
+        :to="`/menu/${item.full_path}`"
         v-if="item.children && item.children.length"
         class="flex items-center justify-between w-full py-2 px-3   text-gray-900   md:hover:text-blue-500  "
       >
@@ -21,11 +22,11 @@
             d="m1 1 4 4 4-4"
           />
         </svg>
-      </button>
+      </NuxtLink>
       
       <NuxtLink
         v-else
-        :to="item.url"
+        :to="`/menu/${item.full_path}`"
         class="flex items-center justify-between w-full py-2 px-3 text-gray-900   md:hover:text-blue-500  "
       >
         {{ item.name }}
@@ -34,7 +35,7 @@
       <!-- نمایش فرزندان سطح اول (dropdown) -->
       <div
         v-if="item.children && item.children.length && level === 0"
-        class="dropdown  "
+        class="dropdown  min-h-32"
       >
         <ul class=" text-sm text-gray-700">
           <MenuItem
@@ -49,7 +50,7 @@
       <!-- نمایش فرزندان سطح دوم و بالاتر (سمت چپ والد) -->
       <div
         v-if="item.children && item.children.length && level > 0"
-        class="sub-dropdown"
+        class="sub-dropdown min-h-32"
       >
         <ul class="py-2 text-sm text-gray-700">
           <MenuItem

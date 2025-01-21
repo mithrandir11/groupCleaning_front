@@ -3,6 +3,7 @@ const orderStore = useOrderStore();
 const isLoading = ref(false)
 
 async function handleStore() {
+    console.log(orderStore.orderData)
 
     isLoading.value = true
 

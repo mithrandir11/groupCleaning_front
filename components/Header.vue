@@ -7,7 +7,7 @@ const { public:{apiBase} } = useRuntimeConfig();
 const { data: menus } = await useAsyncData(
   'menus', // کلید منحصر به فرد برای کش
   () => $fetch(`${apiBase}/menus`),
-  {cache: false}
+  {cache: true}
 );
 </script>
 
@@ -37,6 +37,10 @@ const { data: menus } = await useAsyncData(
               :item="menu"
               :level="0"
           />
+
+          <li>
+              <NuxtLink :to="{name: 'blog'}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">وبلاگ</NuxtLink>
+          </li>
 
           
           <div class="hidden">

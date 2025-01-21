@@ -32,12 +32,21 @@ async function handleUpdate(form) {
 
         <FormKit type="form" @submit="handleUpdate" :incomplete-message="false" :actions="false">
             <div class="space-y-8">
-                <FormKit type="text" name="name" id="name" label="نام و نام‌خانوادگی" 
+                <FormKit type="text" name="name" id="name" label="نام" 
                 label-class="block mb-2 text-sm font-medium text-gray-900 " 
-                input-class="max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-2.5"
+                input-class="max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
                 :value="user.name"
                 validation="required"
-                :validation-messages="{required: 'فیلد نام و نام‌خانوادگی الزامی است'}"
+                :validation-messages="{required: 'فیلد نام الزامی است'}"
+                messages-class="text-red-500 text-sm"
+                />
+
+                <FormKit type="text" name="family" id="family" label="نام‌خانوادگی" 
+                label-class="block mb-2 text-sm font-medium text-gray-900 " 
+                input-class="max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
+                :value="user.family"
+                validation="required"
+                :validation-messages="{required: 'فیلد نام‌خانوادگی الزامی است'}"
                 messages-class="text-red-500 text-sm"
                 />
 

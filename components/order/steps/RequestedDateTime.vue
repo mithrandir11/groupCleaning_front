@@ -10,19 +10,27 @@ const selectedTime = ref(null);
 
 const currentDate = new Date(); // تاریخ امروز
 
+// تابع برای فرمت‌دهی تاریخ به صورت دو رقمی
+const formatDate = (date) => {
+  const year = date.toLocaleDateString('fa-IR', { year: 'numeric' });
+  const month = date.toLocaleDateString('fa-IR', { month: '2-digit' });
+  const day = date.toLocaleDateString('fa-IR', { day: '2-digit' });
+  return `${year}/${month}/${day}`;
+};
+
 // تاریخ امروز تا دو هفته آینده
 const dates = ref(
   Array.from({ length: 14 }, (_, i) => {
     const date = new Date();
     date.setDate(currentDate.getDate() + i);
     return {
-      date: date.toLocaleDateString('fa-IR'),
+      date: formatDate(date), // استفاده از تابع formatDate
       dayName: i === 0 ? 'امروز' : new Intl.DateTimeFormat('fa-IR', { weekday: 'long' }).format(date),
     };
   })
 );
 
-selectedDate.value = dates.value[0].date;
+selectedDate.value = formatDate(currentDate); // استفاده از تابع formatDate
 
 // لیست تمام ساعات
 const allHours = Array.from({ length: 18 }, (_, i) => 6 + i);
@@ -40,7 +48,7 @@ const disabledHours = computed(() => {
   threeHoursLater.setMinutes(0, 0, 0); // تنظیم دقیقه و ثانیه روی صفر
 
   // اگر امروز انتخاب شده است
-  if (selectedDate.value === currentDate.toLocaleDateString('fa-IR')) {
+  if (selectedDate.value === formatDate(currentDate)) { // استفاده از تابع formatDate
     // اگر 3 ساعت بعد به روز بعد برسد، تمام ساعات غیرقابل انتخاب هستند
     if (threeHoursLater.getDate() !== currentDate.getDate()) {
       return allHours; // تمام ساعات غیرفعال
