@@ -1,4 +1,6 @@
 <script setup>
+
+
 const charSearch = ref('');
 
 const router = useRouter()
@@ -11,7 +13,7 @@ const {data, refresh} = await useFetch(()=> '/api/profile/orders', {
     headers: useRequestHeaders(['cookie'])
 })
 
-// console.log(data.value)
+console.log(data.value)
 
 
 function handleFilter(param){
@@ -46,15 +48,37 @@ function handleSearch(char){
 }
 
 
-function statusClass(status){
-  const statusMap = {
-    'در انتظار بررسی': 'text-yellow-600',
-    'انصراف': 'text-red-500',
-    'در حال انجام کار': 'text-blue-500',
-    'اتمام': 'text-green-500',
-  };
-  return statusMap[status] || 'bg-gray-500 text-white'; // Default color
-};
+// function statusClass(status){
+//   const statusMap = {
+//     'در انتظار بررسی': 'text-yellow-600',
+//     'انصراف': 'text-red-500',
+//     'در حال انجام کار': 'text-blue-500',
+//     'اتمام': 'text-green-500',
+//   };
+//   return statusMap[status] || 'bg-gray-500 text-white'; // Default color
+// };
+
+
+
+function translateStatus(status) {
+   let translatedStatus = null;
+    switch (status) {
+        case 'pending':
+            translatedStatus ="در انتظار بررسی"
+            break;
+        case 'processing':
+            translatedStatus ="درحال انجام کار"
+            break;
+        case 'completed':
+            translatedStatus ="اتمام شده"
+            break;
+    
+        default:
+            break;
+    }
+
+    return translatedStatus;
+}
 
 
 </script>
@@ -89,9 +113,9 @@ function statusClass(status){
                     <th scope="col" class="px-6 py-3">
                         کد سفارش
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <!-- <th scope="col" class="px-6 py-3">
                         شماره مشتری و نام و نام‌خانوادگی
-                    </th>
+                    </th> -->
                     <th scope="col" class="px-6 py-3">
                         وضعیت سفارش
                     </th>
@@ -105,27 +129,25 @@ function statusClass(status){
             </thead>
             
             <tbody>
-                <tr v-for="(order, index) in data.data" class="odd:bg-white  even:bg-gray-50  border-b ">
+                <tr v-for="(order, index) in data" class="odd:bg-white  even:bg-gray-50  border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        {{ data.data.length - index }}
+                        {{ data.length - index }}
                     </th>
                     <td class="px-6 py-4">
                         {{ order.order_code }}
                     </td>
-                    <td class="px-6 py-4">
+                    <!-- <td class="px-6 py-4">
                         ------
-                    </td>
+                    </td> -->
                     <td class="px-6 py-4">
-                        <div :class="statusClass(order.status)">
-                            {{ order.status }}
-                        </div>
+                        {{ translateStatus(order.status)  }}
                     </td>
                     <td class="px-6 py-4">
                         ----
                     </td>
                     <td class="px-6 py-4 text-center">
                         <UtilsModal title="نمایش جزییات" btn-color="bg-blue-200" btn-title="نمایش">
-                            <div>{{ order }}</div>
+                            <ProfileServicesShowDetails :order="order"/>
                         </UtilsModal>
                         <!-- <span class="bg-blue-100 px-3 py-1 rounded-full">نمایش</span> -->
                     </td>

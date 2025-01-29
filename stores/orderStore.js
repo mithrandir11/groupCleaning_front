@@ -1,10 +1,12 @@
 export const useOrderStore = defineStore('order', {
   state: () => ({
+    orderCode: null,
     step: 1, // مرحله اصلی
-    maxSteps: 7,
+    maxSteps: 8,
     subStep: 1, // زیرمرحله
     maxSubSteps: {}, // تعداد زیرمراحل برای هر مرحله اصلی، به‌صورت داینامیک
     orderData: {
+      service_id: null,
       serviceType: null, // نوع نظافت
       serviceOptions: {}, // گزینه‌های خدمات
       extraDetails: null, // اطلاعات اضافی برای زیرمراحل

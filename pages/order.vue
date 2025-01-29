@@ -3,7 +3,11 @@ import { useOrderStore } from '~/stores/orderStore';
 const { public:{apiBase} } = useRuntimeConfig();
 const route = useRoute();
 const {data:service} = await useFetch(`${apiBase}/services/${route.params.service}`)
+
+// console.log(service.value.data.id)
 const orderStore = useOrderStore();
+orderStore.orderData.service_id = service.value.data.id
+
 const step = computed(()=> orderStore.step)
 </script>
 <template>
@@ -13,7 +17,6 @@ const step = computed(()=> orderStore.step)
             <OrderStepper/>
 
             <div class="w-full">
-                <!-- <p>{{ step }}</p> -->
                 <OrderStepsServiceType v-if="step == 1" :service_id="service.data.id"/>
 
                 <LazyOrderStepsServiceOptions v-if="step == 2" :service_id="service.data.id" :step="step"/>
@@ -27,6 +30,8 @@ const step = computed(()=> orderStore.step)
                 <LazyOrderStepsAddressRegistration v-if="step == 6"/>
 
                 <LazyOrderStepsOrderStore v-if="step == 7"/>
+                
+                <LazyOrderStepsExpertCall v-if="step == 8" />
 
             </div>
         </div>

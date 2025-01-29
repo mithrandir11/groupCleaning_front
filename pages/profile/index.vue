@@ -14,8 +14,8 @@ async function handleUpdate(form) {
             body: form
         })
 
-        console.log(data)
-        // push.success('اطلاعات شما با موفقیت بروزرسانی شد')
+        // console.log(data)
+        push.success('اطلاعات شما با موفقیت بروزرسانی شد')
     } catch (error) {
         console.log(error.data.data.message)
         

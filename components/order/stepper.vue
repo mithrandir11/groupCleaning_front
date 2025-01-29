@@ -47,11 +47,17 @@ const step = computed(()=> orderStore.step)
             </span>
             <p class="text-sm">ثبت و تایید آدرس</p>
         </li>
-        <li class="ms-8 flex items-center">
-            <span :class="{'bg-blue-400 text-white': step==7, 'bg-gray-200': step!=7 && step<7}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+        <li class=" ms-8 flex items-center">
+            <span :class="{'bg-blue-100 text-blue-500': step>7, 'bg-blue-400 text-white': step==7, 'bg-gray-200': step!=7 && step<7}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
                 7
             </span>
-            <p class="text-sm">ثبت سفارش</p>
+            <p class="text-sm">ثبت و تایید آدرس</p>
+        </li>
+        <li class="ms-8 flex items-center">
+            <span :class="{'bg-blue-400 text-white': step==8, 'bg-gray-200': step!=8 && step<8}" class="absolute flex items-center justify-center w-10 h-10 rounded-full -start-5  ">
+                8
+            </span>
+            <p class="text-sm">تماس کارشناسان</p>
         </li>
     </ol>
 

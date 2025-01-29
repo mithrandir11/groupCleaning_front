@@ -30,3 +30,7 @@ img, svg, video, canvas, audio, iframe, embed, object {
     cursor: not-allowed;
     @apply bg-gray-100;
 }
+
+.Notivue__content-message {
+    overflow: unset !important;
+}

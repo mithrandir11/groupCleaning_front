@@ -18,7 +18,12 @@ export default defineNuxtConfig({
     }
   },
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    'notivue/notification.css',
+    'notivue/animations.css',
+    'notivue/notification-progress.css'
+  ],
 
   postcss: {
     plugins: {
@@ -27,11 +32,12 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@pinia/nuxt', '@formkit/nuxt'],
+  modules: ['@pinia/nuxt', '@formkit/nuxt', 'notivue/nuxt'],
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**'],
   },
   formkit: {
     autoImport: true
-  }
+  },
+  
 })

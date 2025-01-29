@@ -9,7 +9,7 @@ const isSelected = computed(() => !!orderStore.orderData.serviceType);
 
 <template>
      <!-- //step1 type of service -->
-        <div>
+        <div v-if="service_type">
             <div class="flex justify-between mb-6">
                 <p class="font-bold text-xl ">{{ service_type.data.title }}</p>
                 <p class="bg-red-500 rounded-full px-2 py-1 text-xs text-white">پاسخ الزامی میباشد</p>
@@ -26,6 +26,10 @@ const isSelected = computed(() => !!orderStore.orderData.serviceType);
                     مرحله بعد
                 </button>
             </div>
+        </div>
+
+        <div v-else>
+            در حال حاضر این خدمت فعال نشده است
         </div>
 
 </template>

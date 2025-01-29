@@ -57,6 +57,11 @@ export default {
       name: 'menu',
       component: () => import('~/pages/menu/[...slug].vue'),
     },
+    {
+      path: '/hire',
+      name: 'hire',
+      component: () => import('~/pages/hire.vue'),
+    },
     
   ],
 } satisfies RouterConfig
