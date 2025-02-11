@@ -11,10 +11,9 @@ console.log(menu.value.data);
 </script>
 
 <template>
-    <div>
-        {{ menu.data.text }}
+    <div class="lg:px-32">
+        <div v-html="menu.data.text"></div>
+        <Faq :faqs="menu.data.faqs"/>
+        <SuggestedPages :suggested_pages="menu.data.suggested_pages"/>
     </div>
-
-    <Faq :faqs="menu.data.faqs"/>
-    <SuggestedPages :suggested_pages="menu.data.suggested_pages"/>
 </template>

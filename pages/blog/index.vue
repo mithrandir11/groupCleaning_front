@@ -12,12 +12,13 @@ const {data:articles} = await useFetch(`${apiBase}/articles`)
 
              <div v-for="article in articles.data" :key="article.id" class="group w-full  border border-gray-300 rounded-2xl">
               <div class="flex items-center">
-                  <img src="https://pagedone.io/asset/uploads/1696244317.png" alt="blogs tailwind section" class="rounded-t-2xl w-full object-cover">
+                  <!-- <img src="https://pagedone.io/asset/uploads/1696244317.png" alt="blogs tailwind section" class="rounded-t-2xl w-full object-cover"> -->
+                  <img :src="article.image" alt="blogs tailwind section" class="rounded-t-2xl w-full h-52 bg-red-200 ">
               </div>
               <div class="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50">
                   <span class="text-blue-600 font-medium mb-3 block">{{ article.created_at }}</span>
                   <NuxtLink :to="{name: 'showArticle', params:{'id':article.id, 'slug':article.slug}}"><h4 class="text-xl text-gray-900 font-medium leading-8 mb-5">{{ article.title }}</h4></NuxtLink>
-                  <p class="text-gray-500 leading-6 mb-10">{{ article.summary }}</p>
+                  <p v-html=" article.summary " class="text-gray-500 leading-6 mb-10"></p>
                   <!-- <a href="javascript:;" class="cursor-pointer  text-blue-600 font-semibold">ادامه مطلب ...</a> -->
               </div>
              </div>

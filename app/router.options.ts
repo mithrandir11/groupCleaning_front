@@ -43,7 +43,13 @@ export default {
     {
       name: 'profile.services',
       path: '/profile/services',
-      component: () => import('~/pages/profile/services.vue'),
+      component: () => import('~/pages/profile/services/index.vue'),
+      meta: {layout: 'profile', middleware: 'auth'}
+    },
+    {
+      name: 'profile.services.details',
+      path: '/profile/services/:id/details',
+      component: () => import('~/pages/profile/services/[id].vue'),
       meta: {layout: 'profile', middleware: 'auth'}
     },
     {

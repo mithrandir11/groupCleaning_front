@@ -4,7 +4,7 @@ const {handleLogout} =useAuth()
 </script>
 <template>
     
-    <div class="w-72 p-4 border rounded-lg flex-col justify-start items-start gap-6 inline-flex self-start">
+    <div class="w-72 p-4 border border-gray-300 rounded-lg flex-col justify-start items-start gap-6 inline-flex self-start">
         <div class="w-full justify-between items-center gap-2.5 inline-flex ">
            
                 <p class="font-bold">پروفایل کاربر</p>

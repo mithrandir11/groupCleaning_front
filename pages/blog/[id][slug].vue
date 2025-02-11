@@ -2,9 +2,41 @@
 const route = useRoute();
 const { public:{apiBase} } = useRuntimeConfig();
 
-const {data:article} = await useFetch(()=> `${apiBase}/articles/${route.params.id}`, {
-    params:{include_details:true}
-})
+// const {data:article} = await useFetch(()=> `${apiBase}/articles/${route.params.id}`, {
+//     params:{include_details:true}
+// })
+// const route = useRoute();
+const id = route.params.id;
+const { data: article, error } = await useAsyncData(`article-${id}`, () =>
+    $fetch(`${apiBase}/articles/${route.params.id}`, {
+        params:{include_details:true}
+    })
+);
+
+// console.log(article.value.data)
+
+// if (error.value) {
+//     throw createError({ statusCode: 500, statusMessage: 'Failed to fetch article', fatal: true });
+// }
+
+if (article.value.data && article.value.data.seo) {
+    console.log(article.value.data.seo)
+    useHead({
+        title: article.value.data.seo.title || article.value.data.title, // عنوان صفحه
+        meta: [
+            { name: 'description', content: article.value.data.seo.description }, // توضیحات
+            { name: 'keywords', content: article.value.data.seo.keywords.join(', ') }, // کلمات کلیدی
+            { property: 'og:title', content: article.value.data.seo.title }, // Open Graph Title
+            { property: 'og:description', content: article.value.data.seo.description }, // Open Graph Description
+            { property: 'og:url', content: article.value.data.seo.canonical_url }, // Open Graph URL
+            { property: 'og:image', content: article.value.data.seo.open_graph?.image }, // Open Graph Image (اگر موجود باشد)
+        ],
+        link: [
+            { rel: 'canonical', href: article.value.data.seo.canonical_url }, // URL کانونیکال
+        ],
+    });
+}
+// console.log(article.value)
 </script>
 
 <template>
@@ -16,7 +48,7 @@ const {data:article} = await useFetch(()=> `${apiBase}/articles/${route.params.i
                     <header class="mb-4 lg:mb-6 not-format">
                         <address class="flex items-center mb-6 not-italic">
                             <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                                <img class="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
+                                <img class="ml-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                                 <div>
                                     <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{article.data.author_name}}</a>
                                     <p class="text-base text-gray-500 dark:text-gray-400">Graphic Designer, educator & CEO Flowbite</p>
@@ -27,7 +59,7 @@ const {data:article} = await useFetch(()=> `${apiBase}/articles/${route.params.i
                         <h1 class="mb-4 text-3xl font-bold text-gray-900 lg:mb-6 lg:text-4xl">{{ article.data.title }}</h1>
                     </header>
 
-                    <div>{{ article.data.text }}</div>
+                    <div v-html="article.data.text"></div>
 
 
                     <section>

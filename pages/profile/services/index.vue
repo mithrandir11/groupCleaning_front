@@ -60,27 +60,28 @@ function handleSearch(char){
 
 
 
-function translateStatus(status) {
-   let translatedStatus = null;
-    switch (status) {
-        case 'pending':
-            translatedStatus ="در انتظار بررسی"
-            break;
-        case 'processing':
-            translatedStatus ="درحال انجام کار"
-            break;
-        case 'completed':
-            translatedStatus ="اتمام شده"
-            break;
+// function translateStatus(status) {
+//    let translatedStatus = null;
+//     switch (status) {
+//         case 'pending':
+//             translatedStatus ="در انتظار بررسی"
+//             break;
+//         case 'processing':
+//             translatedStatus ="درحال انجام کار"
+//             break;
+//         case 'completed':
+//             translatedStatus ="اتمام شده"
+//             break;
     
-        default:
-            break;
-    }
+//         default:
+//             break;
+//     }
 
-    return translatedStatus;
-}
+//     return translatedStatus;
+// }
 
-
+// const { translateStatus } = useTranslateStatus();
+const { getStatusClass } = useStatus()
 </script>
 <template>
 
@@ -139,17 +140,17 @@ function translateStatus(status) {
                     <!-- <td class="px-6 py-4">
                         ------
                     </td> -->
-                    <td class="px-6 py-4">
-                        {{ translateStatus(order.status)  }}
+                    <td class="px-6 py-4" :class="getStatusClass(order.status)">
+                        {{ order.status_fa  }}
                     </td>
                     <td class="px-6 py-4">
                         ----
                     </td>
                     <td class="px-6 py-4 text-center">
-                        <UtilsModal title="نمایش جزییات" btn-color="bg-blue-200" btn-title="نمایش">
+                        <NuxtLink :to="{name: 'profile.services.details', params:{id: order.id}}" class="bg-blue-100 py-1 px-4 text-black text-sm  rounded-full font-semibold transition-all duration-200 " > مشاهده </NuxtLink>
+                        <!-- <UtilsModal title="نمایش جزییات" btn-color="bg-blue-200" btn-title="نمایش">
                             <ProfileServicesShowDetails :order="order"/>
-                        </UtilsModal>
-                        <!-- <span class="bg-blue-100 px-3 py-1 rounded-full">نمایش</span> -->
+                        </UtilsModal> -->
                     </td>
                 </tr>
                
