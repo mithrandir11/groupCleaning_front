@@ -1,7 +1,7 @@
 <script setup>
 const { public:{apiBase} } = useRuntimeConfig();
 const {data:services} = await useFetch(`${apiBase}/services`)
-console.log(services.value)
+// console.log(services.value)
 </script>
 
 <template>

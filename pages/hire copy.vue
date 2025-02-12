@@ -6,6 +6,12 @@ const isLoading = ref(false)
 
 async function handleStore(form) {
 
+     // data.personal_image.forEach((fileItem) => {
+    //   formData.append('personal_image', fileItem.file)
+    // })
+    // formData.append('personal_image', personalImage.value)
+    // console.log(personalImage.value);
+
 isLoading.value = true
 try {
     const data = await $fetch('/api/resume/store', {

@@ -4,9 +4,10 @@ const { public:{apiBase} } = useRuntimeConfig();
 const route = useRoute();
 const {data:service} = await useFetch(`${apiBase}/services/${route.params.service}`)
 
-// console.log(service.value.data.id)
+// console.log(service.value.data.title_fa)
 const orderStore = useOrderStore();
 orderStore.orderData.service_id = service.value.data.id
+orderStore.orderData.service = service.value.data.title_fa
 
 const step = computed(()=> orderStore.step)
 </script>

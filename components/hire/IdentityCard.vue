@@ -1,6 +1,6 @@
 <script setup>
 
-const emit = defineEmits(['setPersonalImage']);
+const emit = defineEmits(['setIdentityCard']);
 
 const image = ref(null)
 const loading = ref(false);
@@ -17,12 +17,12 @@ function imageFile(el) {
         loading.value = false;
     }
 
-    emit('setPersonalImage', el.target.files[0])
+    emit('setIdentityCard', el.target.files[0])
 }
 
 function removeImage() {
     image.value = null;
-    emit('setPersonalImage', null)
+    emit('setIdentityCard', null)
 }
 
 </script>
@@ -45,7 +45,7 @@ function removeImage() {
                 </div>
 
                 <div v-else>
-                    <label for="formFile" class="block mb-2 text-sm font-medium text-gray-900">تصویر پرسنلی (gpeg,png  حداکثر 5 مگابایت)</label>
+                    <label for="formFile" class="block mb-2 text-sm font-medium text-gray-900">تصویر کارت ملی (gpeg,png  حداکثر 5 مگابایت)</label>
                     <div class="relative">
                         <input @change="imageFile" :disabled="loading" class="form-control" type="file" id="formFile" />
                         <UtilsLoading v-if="loading" theme="dark" class="ml-3 "/>

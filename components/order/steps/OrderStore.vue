@@ -26,70 +26,70 @@ async function handleStore() {
     
 }
 
-const translations = {
-  serviceType: 'نوع خدمت',
-  serviceOptions: 'گزینه‌های خدمات',
-  extraDetails: 'جزئیات اضافی',
-  selectedDateTime: 'تاریخ و زمان انتخاب‌شده',
-  contactNumber: 'شماره تماس',
-  address: 'آدرس',
-  date: 'تاریخ',
-  time: 'زمان',
-  number: 'شماره',
-  isAcceptedTerms: 'قوانین را پذیرفته‌ام',
-  full_address: 'آدرس کامل',
-  state: 'استان',
-  city: 'شهر',
-};
 
-const excludedKeys = ['isAcceptedTerms', 'id']; // فیلدهایی که نباید نمایش داده شوند
-
-const translateKey = (key) => translations[key] || key;
-
-const isExcludedKey = (key) => excludedKeys.includes(key);
-
-const filteredOrderData = computed(() => {
-  const filteredData = { ...orderStore.orderData };
-
-  // حذف فیلدهای نامطلوب از آدرس
-  if (filteredData.address) {
-    const { id, ...restAddress } = filteredData.address;
-    filteredData.address = restAddress;
-  }
-
-  // حذف فیلدهای نامطلوب از contactNumber
-  if (filteredData.contactNumber) {
-    const { isAcceptedTerms, ...restContactNumber } = filteredData.contactNumber;
-    filteredData.contactNumber = restContactNumber;
-  }
-
-  return filteredData;
-});
 </script>
 <template>
     <div> <!-- //step3 -->
         <p class="font-bold text-xl mb-6">بازبینی و ثبت نهایی سفارش</p>
 
-        
-        <div class="space-y-4">
-            <div v-for="(value, key) in filteredOrderData" :key="key" class="bg-gray-50 p-4 rounded-lg">
-            <h3 class="font-semibold text-lg mb-2">{{ translateKey(key) }}</h3>
-            <div v-if="typeof value === 'object' && !Array.isArray(value)" class=" space-y-2">
-                <div v-for="(subValue, subKey) in value" :key="subKey" class="bg-white p-3 rounded-md">
-                <template v-if="!isExcludedKey(subKey)">
-                    <strong>{{ translateKey(subKey) }} : </strong>
-                    <span v-if="typeof subValue === 'object'">
-                    <pre>{{ JSON.stringify(subValue, null, 2) }}</pre>
-                    </span>
-                    <span v-else>{{ subValue }}</span>
-                </template>
-                </div>
-            </div>
-            <div v-else class="bg-white p-3 rounded-md">
-                {{ value }}
-            </div>
-            </div>
+       <div class="space-y-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">خدمت</h3>
+            <div  class="bg-white p-3 rounded-md">{{ orderStore.orderData.service }}</div>
         </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">نوع خدمت</h3>
+            <div  class="bg-white p-3 rounded-md">{{ orderStore.orderData.serviceType }}</div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">گزینه های خدمت</h3>
+          
+            <div v-for="(subValue, subKey) in orderStore.orderData.serviceOptions" :key="subKey" class="bg-white p-3 mt-2 rounded-md">
+                <strong>{{ subKey }} : </strong>
+                <span v-if="Array.isArray(subValue)">
+                    <!-- اگر مقدار یک آرایه باشد، از v-for برای نمایش عناصر استفاده می‌کنیم -->
+                    <ul class="list-none mt-2 space-y-1 pr-3">
+                        <li v-for="(item, index) in subValue" :key="index">{{ item }}</li>
+                    </ul>
+                </span>
+                <span v-else-if="typeof subValue === 'object'">
+                    <!-- اگر مقدار یک شیء باشد، می‌توانید آن را به صورت مناسب فراخوانی کنید -->
+                    <pre>{{ JSON.stringify(subValue, null, 2) }}</pre>
+                </span>
+                <span v-else>
+                    <!-- اگر مقدار یک رشته یا عدد باشد، آن را به صورت ساده نمایش می‌دهیم -->
+                    {{ subValue }}
+                </span>
+            </div>
+           
+            <!-- <div  class="bg-white p-3 rounded-md">ی</div> -->
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">توضیحات</h3>
+            <div  class="bg-white p-3 rounded-md">{{ orderStore.orderData.extraDetails }}</div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">تاریخ و زمان انتخاب شده</h3>
+            <div  class="bg-white p-3 rounded-md"><strong>تاریخ : </strong>  {{ orderStore.orderData.selectedDateTime.date }}</div>
+            <div  class="bg-white p-3 rounded-md mt-2"><strong>ساعت : </strong>  {{ orderStore.orderData.selectedDateTime.time }}</div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">شماره تماس</h3>
+            <div  class="bg-white p-3 rounded-md">{{ orderStore.orderData.contactNumber.number }}</div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">آدرس</h3>
+            <div  class="bg-white p-3 rounded-md">{{ orderStore.orderData.address.full_address }}</div>
+        </div>
+       </div>
+
+        
 
         <div class="flex gap-x-3 justify-center mt-14">
             <button @click="orderStore.previousStep"  type="button" class="border border-gray-600  px-8 py-2 text-sm rounded-lg  ">مرحله قبل</button>

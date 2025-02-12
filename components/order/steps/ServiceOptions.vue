@@ -10,7 +10,7 @@ onMounted(async () => {
     serviceOptions.value = await $fetch(`${apiBase}/service_options/${props.service_id}`);
     orderStore.setMaxSubSteps(props.step, serviceOptions.value.data.length);
   } catch (error) {
-    console.error('Error fetching service options:', error);
+    // console.error('Error fetching service options:', error);
   }
 });
 
@@ -23,7 +23,7 @@ const isOptionValid = (serviceOption) => {
 </script>
 
 <template>
-    <div class="space-y-16 "> <!-- //step2 service options -->
+    <div class="space-y-16 " v-if="serviceOptions.data"> <!-- //step2 service options -->
        
         <template v-for="(serviceOption, index) in serviceOptions.data" :key="serviceOption.id">
             <div  v-if="subStep === index + 1">
