@@ -1,92 +1,27 @@
+<script setup>
+const { public:{apiBase} } = useRuntimeConfig();
+const { data: footers } = await useAsyncData('footers', () =>
+    $fetch(`${apiBase}/footers`)
+);
+
+// console.log(footers.value.data)
+</script>
+
 <template>
-    <footer class="  ">
-        <div class="py-6  md:py-8 lg:py-10">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Discord Server</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Twitter</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Facebook</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Licensing</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Terms</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">iOS</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Android</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Windows</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">MacOS</a>
-                        </li>
-                    </ul>
+    <footer class="bg-blue-50  border-t border-blue-100 px-12 py-10">
+        <!-- <hr class=" border-gray-200 sm:mx-auto dark:border-gray-700 "> -->
+
+        
+            <div class="grid grid-cols-2 justify-center gap-8 md:grid-cols-3 lg:grid-cols-4">
+                <div v-for="footer in footers.data" class="">
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{{ footer.title }}</h2>
+                    <div v-html="footer.text"></div>
                 </div>
             </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
-            <div class="text-center">
+
+            <!-- <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"> -->
+
+            <!-- <div class="text-center mt-8">
                 
                 <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2021-2022 <a href="#" class="hover:underline">Flowbite™</a>. All Rights Reserved.
                 </span>
@@ -120,7 +55,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-        </div>
+            </div> -->
+       
     </footer>
 </template>

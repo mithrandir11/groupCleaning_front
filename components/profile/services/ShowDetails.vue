@@ -54,24 +54,24 @@ const { getStatusClass } = useStatus()
     <ul class="text-right">
       <!-- <p class="text-blue-500 font-bold text-base my-4">توضیحات مشتری</p> -->
 
-      <li class="mb-4">
+      <li class="mb-6">
             <span class="font-semibold"  >خدمت : </span> {{ order.service }}
       </li>
 
-      <li class="mb-4">
+      <li class="mb-6">
             <span class="font-semibold"  >نوع خدمت : </span> {{ order.service_type }}
       </li>
 
       
 
       <template v-for="(value, key) in order.service_options" :key="key" >
-        <li v-if="typeof value !== 'object'"  class="mb-4">
+        <li v-if="typeof value !== 'object'"  class="mb-6">
             <template v-if="!isExcludedKey(key)">
                 <span class="font-semibold"  >{{ key }} : </span> {{ value }}
             </template>
         </li>
 
-        <li v-else class="mb-4">
+        <li v-else class="mb-6">
           <span class="font-semibold" >{{ key }} : </span>
           <ul class="mr-2  pr-2 mt-1">
             <li v-for="(subValue, subKey) in value" :key="subKey" class="mb-1" >
@@ -82,15 +82,18 @@ const { getStatusClass } = useStatus()
 
       </template>
 
-      <li class="mb-4">
+      <li class="mb-6">
             <span class="font-semibold"  >آدرس : </span> {{ order.address }}
       </li>
 
-      <li class="mb-4">
-        <span class="font-semibold"  >توضیحات تکمیلی : </span> {{ order.extra_details }}
+      <li class="mb-6">
+        <span class="font-semibold"  >توضیحات تکمیلی : </span>
+        <div class="max-w-3xl mt-2">
+          {{ order.extra_details }}
+        </div>
       </li>
 
-      <li class="mb-4">
+      <li class="mb-6">
         <span class="font-semibold"  >شماره تماس : </span> {{ order.contact_number }}
       </li>
 

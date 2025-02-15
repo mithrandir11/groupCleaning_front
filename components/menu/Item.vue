@@ -27,6 +27,7 @@
       <NuxtLink
         v-else
         :to="`/menu/${item.full_path}`"
+        activeClass=" bg-white rounded-lg"
         class="flex items-center justify-between w-full py-2 px-3 text-gray-900   md:hover:text-blue-500  "
       >
         {{ item.name }}

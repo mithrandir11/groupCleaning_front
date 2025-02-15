@@ -4,7 +4,7 @@ const {handleLogout} =useAuth()
 </script>
 <template>
     
-    <div class="w-72 p-4 border border-gray-300 rounded-lg flex-col justify-start items-start gap-6 inline-flex self-start">
+    <div class="w-72 p-4 border bg-gray-50 border-gray-300 rounded-lg flex-col justify-start items-start gap-6 inline-flex self-start">
         <div class="w-full justify-between items-center gap-2.5 inline-flex ">
            
                 <p class="font-bold">پروفایل کاربر</p>
@@ -77,7 +77,7 @@ const {handleLogout} =useAuth()
 
                 <li>
                     <div class="flex-col gap-1 flex">
-                        <div class="flex-col flex bg-white rounded-lg p-3">
+                        <div class="flex-col flex  rounded-lg p-3">
                             <div class="h-5 gap-3 flex">
                                 <div class="relative">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#343C54" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
@@ -93,7 +93,7 @@ const {handleLogout} =useAuth()
 
                 <li>
                     <div class="flex-col gap-1 flex">
-                        <button @click="handleLogout()" type="button" class="flex-col flex bg-white rounded-lg p-3">
+                        <button @click="handleLogout()" type="button" class="flex-col flex  rounded-lg p-3">
                             <div class="h-5 gap-3 flex">
                                 <div class="relative">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

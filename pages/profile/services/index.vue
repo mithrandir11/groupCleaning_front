@@ -48,39 +48,6 @@ function handleSearch(char){
 }
 
 
-// function statusClass(status){
-//   const statusMap = {
-//     'در انتظار بررسی': 'text-yellow-600',
-//     'انصراف': 'text-red-500',
-//     'در حال انجام کار': 'text-blue-500',
-//     'اتمام': 'text-green-500',
-//   };
-//   return statusMap[status] || 'bg-gray-500 text-white'; // Default color
-// };
-
-
-
-// function translateStatus(status) {
-//    let translatedStatus = null;
-//     switch (status) {
-//         case 'pending':
-//             translatedStatus ="در انتظار بررسی"
-//             break;
-//         case 'processing':
-//             translatedStatus ="درحال انجام کار"
-//             break;
-//         case 'completed':
-//             translatedStatus ="اتمام شده"
-//             break;
-    
-//         default:
-//             break;
-//     }
-
-//     return translatedStatus;
-// }
-
-// const { translateStatus } = useTranslateStatus();
 const { getStatusClass } = useStatus()
 </script>
 <template>
