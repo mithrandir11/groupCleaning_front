@@ -8,11 +8,11 @@ const { data: footers } = await useAsyncData('footers', () =>
 </script>
 
 <template>
-    <footer class="bg-blue-50  border-t border-blue-100 px-12 py-10">
+    <footer class="bg-blue-50  border-t border-blue-100 px-12 py-10 text-sm md:text-base">
         <!-- <hr class=" border-gray-200 sm:mx-auto dark:border-gray-700 "> -->
 
         
-            <div class="grid grid-cols-2 justify-center gap-8 md:grid-cols-3 lg:grid-cols-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 justify-center gap-x-8 gap-y-20  lg:grid-cols-4">
                 <div v-for="footer in footers.data" class="">
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{{ footer.title }}</h2>
                     <div v-html="footer.text"></div>

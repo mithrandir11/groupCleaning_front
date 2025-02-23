@@ -1,11 +1,12 @@
 <script setup>
 const {handleLogout} =useAuth()
 
+const showSidebar = ref(false)
 </script>
 <template>
     
-    <div class="w-72 p-4 border bg-gray-50 border-gray-300 rounded-lg flex-col justify-start items-start gap-6 inline-flex self-start">
-        <div class="w-full justify-between items-center gap-2.5 inline-flex ">
+    <div class="lg:w-72 mb-8 p-4 border bg-gray-50 border-gray-300 rounded-lg w-full inline-flex flex-col justify-start items-start gap-6  self-start">
+        <div @click="showSidebar = !showSidebar" class="w-full justify-between items-center gap-2.5 inline-flex ">
            
                 <p class="font-bold">پروفایل کاربر</p>
            
@@ -19,9 +20,9 @@ const {handleLogout} =useAuth()
             </div>
         </div>
 
-        <div class="w-full ">
+        <div v-if="showSidebar" class="w-full ">
             
-            <ul class="flex-col gap-y-4 flex">
+            <ul class="flex-col gap-y-4 flex list-none">
 
                 <li>
                     <div class="flex-col gap-1 flex">

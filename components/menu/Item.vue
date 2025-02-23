@@ -1,11 +1,7 @@
 <template>
-    <li class="menu-item ">
+    <li class="menu-item list-none">
       <!-- نمایش منوی والد -->
-      <NuxtLink
-        :to="`/menu/${item.full_path}`"
-        v-if="item.children && item.children.length"
-        class="flex items-center justify-between w-full py-2 px-3   text-gray-900   md:hover:text-blue-500  "
-      >
+      <NuxtLink :to="`/menu/${item.full_path}`" v-if="item.children && item.children.length" class="flex items-center justify-between w-full py-2 px-3   text-gray-900   md:hover:text-blue-500  " >
         {{ item.name }}
         <svg
           class="w-2.5 h-2.5 ms-2.5"
@@ -24,12 +20,7 @@
         </svg>
       </NuxtLink>
       
-      <NuxtLink
-        v-else
-        :to="`/menu/${item.full_path}`"
-        activeClass=" bg-white rounded-lg"
-        class="flex items-center justify-between w-full py-2 px-3 text-gray-900   md:hover:text-blue-500  "
-      >
+      <NuxtLink v-else :to="`/menu/${item.full_path}`"  activeClass=" bg-white rounded-lg" class="flex items-center justify-between w-full py-2 px-3 text-gray-900   md:hover:text-blue-500  ">
         {{ item.name }}
       </NuxtLink>
   
@@ -38,7 +29,7 @@
         v-if="item.children && item.children.length && level === 0"
         class="dropdown  min-h-32"
       >
-        <ul class=" text-sm text-gray-700">
+        <ul class=" text-sm text-gray-700 list-none">
           <MenuItem
             v-for="child in item.children"
             :key="child.id"
@@ -53,7 +44,7 @@
         v-if="item.children && item.children.length && level > 0"
         class="sub-dropdown min-h-32"
       >
-        <ul class="py-2 text-sm text-gray-700">
+        <ul class="py-2 text-sm text-gray-700 list-none">
           <MenuItem
             v-for="child in item.children"
             :key="child.id"

@@ -6,7 +6,7 @@ const orderStore = useOrderStore();
     <div> <!-- //step8 -->
         <p class="font-bold text-xl mb-6">تماس کارشناسان با شما</p>
 
-        <div class="flex justify-between items-center bg-blue-100 rounded-2xl p-6">
+        <div class="flex flex-wrap lg:flex-nowrap justify-between items-center bg-blue-100 rounded-2xl p-2 lg:p-6">
             <div class=" text-center">
                 <div class="rounded-full p-3 bg-white inline-flex mb-6 ">
                     <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
@@ -16,7 +16,7 @@ const orderStore = useOrderStore();
                 <p class="p-3 text-right rounded-2xl bg-white  text-gray-600 mb-6">کد سفارش <span class="font-bold text-black mx-2">{{ orderStore.orderCode }}</span> ثبت شده و کارشناسان در کوتاه ترین زمان با شما تماس خواهند گرفت.</p>
                 <NuxtLink :to="{name: 'profile.services'}" class="px-3 py-2  shadow rounded-2xl bg-blue-500  text-white">مشاهده سفارشات</NuxtLink>
             </div>
-            <img class="h-96" src="/images/customer-support-b.png" alt="">
+            <img class="h-96 w-full md:w-auto" src="/images/customer-support-b.png" alt="">
         </div>
         
         

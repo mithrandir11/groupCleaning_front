@@ -34,7 +34,7 @@ async function handleUpdate(form) {
             <div class="space-y-8">
                 <FormKit type="text" name="name" id="name" label="نام" 
                 label-class="block mb-2 text-sm font-medium text-gray-900 " 
-                input-class="max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
+                input-class="lg:max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
                 :value="user.name"
                 validation="required"
                 :validation-messages="{required: 'فیلد نام الزامی است'}"
@@ -43,14 +43,14 @@ async function handleUpdate(form) {
 
                 <FormKit type="text" name="family" id="family" label="نام‌خانوادگی" 
                 label-class="block mb-2 text-sm font-medium text-gray-900 " 
-                input-class="max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
+                input-class="lg:max-w-sm text-gray-500 text-sm border border-gray-300  rounded-lg outline-none focus:border-blue-500 block w-full p-3"
                 :value="user.family"
                 validation="required"
                 :validation-messages="{required: 'فیلد نام‌خانوادگی الزامی است'}"
                 messages-class="text-red-500 text-sm"
                 />
 
-                <div class="max-w-sm">
+                <div class="lg:max-w-sm">
                     <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">شماره موبایل</label>
                     <input :value="user.cellphone" type="text" id="default-input" disabled class="border disabled border-gray-300 text-gray-900 text-sm rounded-lg outline-none  focus:border-blue-500 block w-full p-3">
                 </div>

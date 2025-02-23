@@ -5,7 +5,7 @@ const step = computed(()=> orderStore.step)
 </script>
 
 <template>
-    <ol class="relative text-gray-600 border-s border-gray-200  mt-3 space-y-14 mr-5 self-start w-56">               
+    <ol class="hidden lg:block relative text-gray-600 border-s border-gray-200  mt-3 space-y-14 mr-5 self-start w-56">               
         <li class=" ms-8 flex items-center">            
             <!-- <span class="absolute flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full -start-5 text-white">
                 <svg class="w-3.5 h-3.5 text-blue-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">

@@ -14,8 +14,10 @@ async function handleLogin(form) {
             body: form
         })
 
-        // console.log(data)
-        console.log('کد ورود ارسال شد')
+        
+        push.success(`کد ورود : ${data.otp}`)
+        // console.log('کد ورود ارسال شد')
+
         emit('showCheckOtpForm')
     } catch (error) {
         console.log(error)

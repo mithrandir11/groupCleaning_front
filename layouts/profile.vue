@@ -1,12 +1,8 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
     <Header/>
     <div class="px-1 lg:px-0 container mx-auto  ">
         
-        <div class="py-36 flex gap-x-6">
+        <div class="py-36 flex flex-wrap gap-x-6">
             <ProfileSidebar/>
             <slot/>
         </div>

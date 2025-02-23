@@ -69,7 +69,7 @@ async function create(data) {
 
         <!-- </div> -->
 
-        <div class="grid grid-cols-2 gap-8 ">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
          
 
           <FormKit

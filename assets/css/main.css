@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer components {
+
+} */
+
+@layer base {
+    ol, ul, menu {
+        list-style: unset;
+    }
+
+    h1{
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    h2{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    h3{
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    h4{
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    h5{
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+
+    table, th, td, caption, col, colgroup, tbody, tfoot, thead, tr {
+        border-color: inherit; /* حذف رنگ مرز پیش‌فرض */
+        border-style: inherit; /* حذف خط مرز پیش‌فرض */
+        border-width: 1px; /* حذف عرض مرز پیش‌فرض */
+        border-spacing: inherit; /* حذف فاصله بین سلول‌ها */
+        vertical-align: baseline; /* بازنشانی تنظیمات عمودی */
+        padding: 0.5em;
+      }
+      
+      /* حذف استایل‌های پیش‌فرض دیگر مرتبط با جداول */
+      table {
+        border-collapse: separate; /* تنظیم border-collapse به separate */
+        text-indent: initial; /* بازنشانی indent متن */
+        
+      }
+
+    
+}
+
+
+
 @font-face {
     font-family: "Vazir";
     src: url(../fonts/Vazir.eot);

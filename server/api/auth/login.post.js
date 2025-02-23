@@ -21,8 +21,8 @@ export default defineEventHandler(async (event) => {
         })
 
         // console.log(data)
-        // return data.data
-        return 'login success'
+        return data.data
+        // return 'login success'
     } catch (error) {
         console.log(error)
         return error
