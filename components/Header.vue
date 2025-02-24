@@ -214,20 +214,20 @@ const isMenuOpen = ref(false);
                           <a href="/" class="pt-2 px-1"><h3 class="font-bold text-2xl  text-blue-950">نظافت گروپ</h3></a>
                       </div>
 
-                      <a href="/" class=" text-blue-900 p-2 text-lg  border-b">
-                          صفحه اصلی
-                      </a>
+                      <li class="list-none">
+                          <NuxtLink :to="{name: 'home'}" @click="isMenuOpen = false" activeClass="bg-white rounded-lg" class="block text-gray-900 py-2 px-3">صفحه اصلی</NuxtLink>
+                      </li>
 
                       <template v-for="menu in menus.data" :key="menu.id">
                         <MenuItemMobile :item="menu" :level="0" @close-menu="isMenuOpen = false" />
                       </template>
 
                       <li class="list-none">
-                          <NuxtLink :to="{name: 'blog'}" activeClass="bg-white rounded-lg" class="block text-gray-900 py-2 px-3   ">وبلاگ</NuxtLink>
+                          <NuxtLink :to="{name: 'blog'}" @click="isMenuOpen = false" activeClass="bg-white rounded-lg" class="block text-gray-900 py-2 px-3   ">وبلاگ</NuxtLink>
                       </li>
 
                       <li class="list-none">
-                          <NuxtLink :to="{name: 'hire'}" activeClass="bg-white rounded-lg" class="block text-gray-900 py-2 px-3   ">استخدام نیرو</NuxtLink>
+                          <NuxtLink :to="{name: 'hire'}" @click="isMenuOpen = false" activeClass="bg-white rounded-lg" class="block text-gray-900 py-2 px-3   ">استخدام نیرو</NuxtLink>
                       </li>
                   </div>
               </div>

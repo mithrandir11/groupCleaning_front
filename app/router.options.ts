@@ -59,6 +59,12 @@ export default {
       meta: {layout: 'profile', middleware: 'auth'}
     },
     {
+      name: 'profile.notifications',
+      path: '/profile/notifications',
+      component: () => import('~/pages/profile/notifications.vue'),
+      meta: {layout: 'profile', middleware: 'auth'}
+    },
+    {
       path: '/menu/:slug+',
       name: 'menu',
       component: () => import('~/pages/menu/[...slug].vue'),

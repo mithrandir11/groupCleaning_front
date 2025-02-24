@@ -4,7 +4,7 @@
       <NuxtLink :to="`/menu/${item.full_path}`" v-if="item.children && item.children.length" class="flex items-center justify-between w-full py-2 px-3   text-gray-900   md:hover:text-blue-500  " >
         {{ item.name }}
         <svg
-          class="w-2.5 h-2.5 ms-2.5"
+          class="w-2.5 h-2.5 ms-2.5 rotate-90"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -40,10 +40,7 @@
       </div>
   
       <!-- نمایش فرزندان سطح دوم و بالاتر (سمت چپ والد) -->
-      <div
-        v-if="item.children && item.children.length && level > 0"
-        class="sub-dropdown min-h-32"
-      >
+      <div v-if="item.children && item.children.length && level > 0" class="sub-dropdown min-h-32 mt-2">
         <ul class="py-2 text-sm text-gray-700 list-none">
           <MenuItem
             v-for="child in item.children"
